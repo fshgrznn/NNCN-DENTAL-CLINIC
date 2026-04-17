@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Libre Baskerville", serif;
+  
+  --color-gold-50: #fbf8e9;
+  --color-gold-100: #f4ecbe;
+  --color-gold-200: #eadb84;
+  --color-gold-300: #dec14c;
+  --color-gold-400: #d4a928;
+  --color-gold-500: #c58f1f;
+  --color-gold-600: #a96e19;
+  --color-gold-700: #875017;
+  --color-gold-800: #714119;
+  --color-gold-900: #61371a;
+  --color-gold-950: #381c0b;
+
+  --color-luxury-black: #0a0a0a;
+  --color-luxury-bone: #f5f2ed;
+}
+
+@layer base {
+  body {
+    @apply bg-luxury-bone text-luxury-black antialiased overflow-x-hidden;
+  }
+}
+
+.luxury-gradient-text {
+  background: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-border-gradient {
+  border-image: linear-gradient(to right, #bf953f, #fcf6ba, #b38728) 1;
+}
+
+.abstract-wave-bg {
+  background: radial-gradient(circle at 50% 50%, rgba(197, 143, 31, 0.1) 0%, transparent 70%),
+              radial-gradient(circle at 0% 0%, rgba(10, 10, 10, 1) 0%, transparent 100%),
+              #0a0a0a;
+  position: relative;
+  overflow: hidden;
+}
+
+.abstract-wave-bg::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 1000 1000' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.03;
+  pointer-events: none;
+}
+
+@keyframes subtle-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(197, 143, 31, 0.2); }
+  50% { box-shadow: 0 0 40px rgba(197, 143, 31, 0.4); }
+}
+
+.glow-button {
+  animation: subtle-glow 4s ease-in-out infinite;
+}
